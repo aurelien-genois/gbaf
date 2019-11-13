@@ -1,0 +1,188 @@
+/* header */
+
+header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: solid black 1px;
+}
+
+#logo {
+    display: block;
+    height: 140px;
+    margin-left: 50px;
+}
+
+#user {
+    margin: 0 10px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+#user p {
+    margin-left: 10px;
+}
+
+#avatar {
+    height: 100%;
+}
+
+/* index sections */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+main {
+    margin: 0 50px 0 50px;
+}
+
+h1, h2, h3 {
+    font-family: 'Martel', serif;
+}
+
+#illustration {
+    display: block;
+    width: 100%;
+    height: 150px;
+    background-color: blue;
+}
+
+#conteneur_acteur {
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.acteur {
+    border: solid black 1px;
+    width: 98%;
+    margin: 5px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentation_acteur {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo_acteur {
+    height: 100px;
+}
+
+.description {
+    margin-left: 20px;
+    width: 60%;
+}
+
+.button {
+    align-self: flex-end;
+    white-space: nowrap;
+    background-image: linear-gradient(#ff6363 , #FF0000);
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+/* page acteurs */
+
+#presentation_acteur {
+    border: solid black 1px;
+    margin: 10px 0px;
+    padding: 10px 30px 30px 20px;
+}
+
+.logo_page_acteur {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.logo_page_acteur img {
+    width: 40%;
+}
+
+.description_page_acteur h2 {
+    margin-bottom: 0;
+}
+
+#commentaire {
+    border: solid black 1px;
+    padding: 10px 30px 30px 20px;
+    margin-bottom: 10px;
+}
+
+.head_commentaire {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.head_commentaire h2 {
+    margin-top: 0;
+}
+
+.actions {
+    display: flex;
+}
+
+.actions div {
+    border: solid black 1px;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.actions p {
+    margin: 0;
+}
+
+.actions .fas {
+    display: block;
+    height: 25px;
+    margin: 0 5px;
+}
+
+.commentaires div {
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.commentaires p {
+    margin: 0 0;
+}
+
+/* foorer */
+
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF0000;
+}
+
+footer p, footer a {
+    color: white;
+    text-decoration: none;
+}
