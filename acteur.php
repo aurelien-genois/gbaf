@@ -1,3 +1,11 @@
+<?php
+require('includes/connexion.php');
+
+$actorInfo = $db->prepare('SELECT * FROM gbaf_actor WHERE id = ?');
+$actorInfo->execute(array($_GET['id_actor']));
+$actor = $actorInfo->fetch();
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
@@ -6,28 +14,23 @@
         <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Martel|Open+Sans&display=swap" rel="stylesheet">
-        <title>nom acteur (php) </title>
+        <title><?= $actor['name']; ?></title>
         <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
     </head>
-
     <body>
         <?php include("includes/header.php"); ?>
-
         <main>
-
             <section id="presentation_acteur">
-
                 <div class="logo_page_acteur">
-                    <img src="img/CDE.png" alt=""/>
+                    <img src="<?= 'img' . DIRECTORY_SEPARATOR . $actor['logo_file']; ?>" alt="logo de l'acteur"/>
                 </div>
                 <div class="description_page_acteur">
-                    <h2>Nom acteur</h2>
-                    <a href="#">lien</a>
-                    <p>contenu contextuel... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2><?= $actor['name']; ?></h2>
+                    <p><?= $actor['description']; ?></p>
                 </div>
-
             </section>
 
+            <!-- fonctionnalité pas encore développée
             <section id="commentaire">
 
                 <div class="head_commentaire">
@@ -66,11 +69,9 @@
 
                 </div>
 
-            </section>
+            </section> -->
 
         </main>
-
         <?php include("includes/footer.php"); ?>
-
     </body>
 </html>

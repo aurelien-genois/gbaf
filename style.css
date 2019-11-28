@@ -67,6 +67,15 @@ main {
 
 h1, h2, h3 {
     font-family: 'Martel', serif;
+    text-decoration: underline;
+    text-decoration-color: #FF0000;
+}
+
+li {
+    color: #FF0000;
+}
+li::first-line {
+    color: #000;
 }
 
 #presentation .listeacteurs {
@@ -75,8 +84,15 @@ h1, h2, h3 {
 }
 
 #illustration {
+    display: flex;
+    justify-content: center;
+}
+
+#illustration img {
     display: block;
-    width: 100%;
+    width: 110%;
+    border: solid 1px #000000;
+    max-width: 1000px;
 }
 
 #conteneur_acteur {
@@ -98,16 +114,19 @@ h1, h2, h3 {
     flex-direction: row;
     justify-content: space-between;
     background-color: #fff;
+    border: solid 1px #FF0000;
     border-radius: 10px;
 }
 
 .presentation_acteur {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .logo_acteur {
-    height: 100px;
+    width: 200px;
+    border: solid 1px #000000;
 }
 
 .description {
@@ -130,6 +149,16 @@ h1, h2, h3 {
     opacity: 0.8;
 }
 
+@media screen and (min-width: 1020px) {
+    #presentation .listeacteurs {
+        display: flex;
+        justify-content: center;
+    }
+
+    .listeacteurs ul {
+        margin: 20px;
+    }
+}
 
 @media screen and (max-width: 1020px) {
     .acteur {
@@ -179,6 +208,10 @@ h1, h2, h3 {
     .listeacteurs li {
         margin: 10;
     }
+
+    #illustration img {
+        width: 135%;
+    }
 }
 
 /* pages acteurs */
@@ -192,11 +225,11 @@ h1, h2, h3 {
 .logo_page_acteur {
     display: flex;
     justify-content: center;
-    margin: 50px;
 }
 
 .logo_page_acteur img {
-    width: 40%;
+    width: 60%;
+    max-width: 400px;
 }
 
 .description_page_acteur h2 {
@@ -263,7 +296,7 @@ h1, h2, h3 {
 footer {
     height: 150px;
     width: 100%;
-    background-color: #FF0000;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
