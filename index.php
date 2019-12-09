@@ -1,11 +1,6 @@
 <?php
 session_start();
 require('includes/connexion.php');
-require('model/model.php');
-$actors = getActors();
-/* echo "<pre>";
-print_r($actors);
-die(); */
 if (isset($_SESSION['username'])) {
     include('includes/home.php');
 } elseif ($_GET['login'] == 'register') {
@@ -15,4 +10,4 @@ if (isset($_SESSION['username'])) {
 } else {
     include('includes/login.php');
 }
-include("includes/footer.php");
+include('includes/footer.php');

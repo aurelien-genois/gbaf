@@ -1,4 +1,6 @@
 <?php
+require_once('model/model.php');
+$pageTitle = 'Inscription sur le site GBAF';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['register_form'] == 'register') {
         $lastname = htmlspecialchars($_POST['lastname']);
@@ -51,43 +53,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+include('includes/head.php');
 ?>
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Martel|Open+Sans&display=swap" rel="stylesheet">
-        <title>Inscription sur le site GBAF</title>
-        <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
-    </head>
-    <body>
-        <div id="header_form">
-            <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
-            <p>Le Groupement Banque Assurance Français</p>
-        </div>
-        <main>
-            <section class="form">
-                <h1>Inscription</h1>
-                <form method="post" novalidate>
-                    <input type="hidden" name="register_form" value="register" />
-                    <p><label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>" required /></p>
-                    <p class="error"><?= isset($errorsMsg['lastname']) ? $errorsMsg['lastname'] : '' ?></p>
-                    <p><label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>"required /></p>
-                    <p class="error"><?= isset($errorsMsg['firstname']) ? $errorsMsg['firstname'] : '' ?></p>
-                    <p><label for="username">Nom d'utilisateur : </label><input type="text" name="username" id="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>" required /></p>
-                    <p class="error"><?= isset($errorsMsg['username']) ? $errorsMsg['username'] : '' ?></p>
-                    <p><label for="pass">Mot de passe :</label><input type="password" name="pass" id="pass" required /></p>
-                    <p class="error"><?= isset($errorsMsg['pass']) ? $errorsMsg['pass'] : '' ?></p>
-                    <p><label for="checkpass">Confirmation du Mot de passe :</label><input type="password" name="checkpass" id="checkpass" required /></p>
-                    <p class="error"><?= isset($errorsMsg['diffPass']) ? $errorsMsg['diffPass'] : '' ?></p>
-                    <p><label for="question">Question secrète : </label><input type="text" name="question" id="question" value="<?= isset($_POST['question']) ? $_POST['question'] : '' ?>" required /></p>
-                    <p class="error"><?= isset($errorsMsg['question']) ? $errorsMsg['question'] : '' ?></p>
-                    <p><label for="answer">Réponse à la question secrète : </label><input type="text" name="answer" id="answer" value="<?= isset($_POST['answer']) ? $_POST['answer'] : '' ?>" required /></p>
-                    <p class="error"><?= isset($errorsMsg['answer']) ? $errorsMsg['answer'] : '' ?></p>
-                    <p><input type="submit" value="Valider" /></p>
-                </form>
-            </section>
-        </main>
+<div id="header_form">
+    <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
+    <p>Le Groupement Banque Assurance Français</p>
+</div>
+<main>
+    <section class="form">
+        <h1>Inscription</h1>
+        <form method="post" novalidate>
+            <input type="hidden" name="register_form" value="register" />
+            <p><label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>" required /></p>
+            <p class="error"><?= isset($errorsMsg['lastname']) ? $errorsMsg['lastname'] : '' ?></p>
+            <p><label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>"required /></p>
+            <p class="error"><?= isset($errorsMsg['firstname']) ? $errorsMsg['firstname'] : '' ?></p>
+            <p><label for="username">Nom d'utilisateur : </label><input type="text" name="username" id="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>" required /></p>
+            <p class="error"><?= isset($errorsMsg['username']) ? $errorsMsg['username'] : '' ?></p>
+            <p><label for="pass">Mot de passe :</label><input type="password" name="pass" id="pass" required /></p>
+            <p class="error"><?= isset($errorsMsg['pass']) ? $errorsMsg['pass'] : '' ?></p>
+            <p><label for="checkpass">Confirmation du Mot de passe :</label><input type="password" name="checkpass" id="checkpass" required /></p>
+            <p class="error"><?= isset($errorsMsg['diffPass']) ? $errorsMsg['diffPass'] : '' ?></p>
+            <p><label for="question">Question secrète : </label><input type="text" name="question" id="question" value="<?= isset($_POST['question']) ? $_POST['question'] : '' ?>" required /></p>
+            <p class="error"><?= isset($errorsMsg['question']) ? $errorsMsg['question'] : '' ?></p>
+            <p><label for="answer">Réponse à la question secrète : </label><input type="text" name="answer" id="answer" value="<?= isset($_POST['answer']) ? $_POST['answer'] : '' ?>" required /></p>
+            <p class="error"><?= isset($errorsMsg['answer']) ? $errorsMsg['answer'] : '' ?></p>
+            <p><input type="submit" value="Valider" /></p>
+        </form>
+    </section>
+</main>
