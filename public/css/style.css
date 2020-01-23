@@ -1,12 +1,12 @@
 /* header */
-header {
+#header {
     height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: solid black 1px;
 }
-header #logo {
+#header #logo {
     display: block;
     height: 140px;
     margin-left: 50px;
@@ -201,7 +201,7 @@ li {
         margin: 0;
     }
     .presentationListActeurs li {
-        margin: 10;
+        margin: 10px;
     }
     #illustration img {
         width: 135%;
@@ -308,6 +308,7 @@ form {
 #account input[type="submit"]:hover {
     opacity: 0.8;
 }
+/* formulaires */
 #header_form {
     border-bottom: solid black 1px;
     display: flex;
@@ -333,6 +334,7 @@ form {
 .confirm {
     color: green;
 }
+/* footer */
 footer {
     height: 150px;
     width: 100%;

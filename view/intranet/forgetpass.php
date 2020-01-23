@@ -1,53 +1,12 @@
-<?php
-require_once('model/model.php');
-$pageTitle ='Nouveau mot de passe';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['change_pass_form'] == 'username') {
-        $username = htmlspecialchars($_POST['username'] );
-        $userExist = getUser($username);
-        $question = $userExist['question'];
-        if (empty($userExist)) {
-            $errorUsername = 'Utilisateur inconnu';
-        }
-    }
-    if ($_POST['change_pass_form'] == 'question') {
-        $answer = htmlspecialchars($_POST['answer']);
-        $username = $_POST['username'];
-        $answerExist = getAnswer($answer, $username);
-        if (empty($answerExist)) {
-            $errorAnswer = 'Réponse incorrecte';
-            $userExist = getUser($username);
-            $question = $userExist['question'];
-        }
-    }
-    if ($_POST['change_pass_form'] == 'newpass') {
-        $username = $_POST['username'];
-        $newpass = htmlspecialchars($_POST['newpass']);
-        $checkpass = htmlspecialchars($_POST['checkpass']);
-        if (empty($newpass) OR strlen($newpass) > 20 OR strlen($newpass) < 4) {
-            $errorPass = 'Le mot de passe est vide ou est trop long ou trop court';
-        } else {
-            if ($newpass != $checkpass) {
-                $diffPass = 'Le mot de passe n\'est pas identique';
-            } else {
-                $pass_hache = password_hash($newpass, PASSWORD_DEFAULT);
-                updatePass($pass_hache, $username);
-                header('Location: index.php');
-                exit();
-            }
-        }
-    }
-}
-include('includes/head.php');
-?>
-<div id="header_form">
-    <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
-    <p>Le Groupement Banque Assurance Français</p>
-</div>
+<?php $pageTitle = 'Nouveau mot de passe'; ?>
+<?php $header = 'noconnect'; ?>
+
+<?php ob_start(); ?>
 <main>
     <section class="form">
         <h1>Changer votre mot de passe</h1>
         <?php
+
         if ($_SERVER['REQUEST_METHOD'] != 'POST' OR isset($errorUsername)) { ?>
             <form method="post">
                 <input type="hidden" name="change_pass_form" value="username" />
@@ -56,6 +15,7 @@ include('includes/head.php');
                 <input type="submit" value="Valider">
             </form>
         <?php }
+
         if ($_POST['change_pass_form'] == 'username' AND !isset($errorUsername) OR isset($errorAnswer)) { ?>
             <label>Votre question secrète :</label>
             <p id="question"><?= $question; ?></p>
@@ -67,6 +27,7 @@ include('includes/head.php');
                 <input type="submit" value="Valider">
             </form>
         <?php }
+
         if ($_POST['change_pass_form'] == 'question' AND !isset($errorAnswer) OR isset($diffPass) OR isset($errorPass)) { ?>
             <form method="post">
                 <input type="hidden" name="change_pass_form" value="newpass" />
@@ -80,3 +41,7 @@ include('includes/head.php');
         <?php } ?>
     </section>
 </main>
+
+<?php $pageContent = ob_get_clean(); ?>
+
+<?php require('view/intranet/template.php'); ?>
