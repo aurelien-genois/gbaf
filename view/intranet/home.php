@@ -20,7 +20,7 @@
         </div>
         <p>Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler  de la même façon pour gérer près de 80 millions de comptes sur le territoire  national.  Le GBAF est le représentant de la profession bancaire et des assureurs sur tous  les axes de la réglementation financière française. Sa mission est de promouvoir  l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des pouvoirs publics.  </p>
         <figure id="illustration">
-            <img src="img/illustration.jpg" alt="illustration"/>
+            <img src="public/img/illustration.jpg" alt="illustration"/>
         </figure>
         <figcaption hidden>Illustration de GBAF, photo de @slakarvounis libre de droits téléchargée sur unsplash.com</figcaption>
     </section>
@@ -34,7 +34,7 @@
                 <div class="acteur">
                     <div class="presentation_acteur">
                         <figure>
-                            <img class="logo_acteur" src="<?= 'img' . DIRECTORY_SEPARATOR . $actor['logo_file']; ?>" alt="logo de l'acteur">
+                            <img class="logo_acteur" src="<?= 'public/img' . DIRECTORY_SEPARATOR . $actor['logo_file']; ?>" alt="logo de l'acteur">
                         </figure>
                         <figcaption hidden>Logo de <?= $actor['name']; ?></figcaption>
                         <div class="description">
